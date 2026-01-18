@@ -15,7 +15,7 @@ Prometheus is the foundation of the monitoring stack, providing metrics collecti
 
 ```hcl
 module "prometheus" {
-  source = "git::https://github.com/fabiocicerchia/tf-k8s-prometheus-stack-module.git?ref=main"
+  source = "git::https://github.com/fabiocicerchia/terraform-k8s-prometheus-stack-module.git?ref=main"
 
   kubeconfig_path = "~/.kube/config"
   release_name    = "prometheus-community"
@@ -55,7 +55,7 @@ module "prometheus" {
 
 ```hcl
 module "prometheus" {
-  source = "git::https://github.com/fabiocicerchia/tf-k8s-prometheus-stack-module.git?ref=main"
+  source = "git::https://github.com/fabiocicerchia/terraform-k8s-prometheus-stack-module.git?ref=main"
 
   kubeconfig_path = "~/.kube/config"
   namespace       = "monitoring"
@@ -66,7 +66,7 @@ module "prometheus" {
 
 ```hcl
 module "prometheus" {
-  source = "git::https://github.com/fabiocicerchia/tf-k8s-prometheus-stack-module.git?ref=main"
+  source = "git::https://github.com/fabiocicerchia/terraform-k8s-prometheus-stack-module.git?ref=main"
 
   kubeconfig_path = "~/.kube/config"
   namespace       = "custom-monitoring"
@@ -85,7 +85,7 @@ module "prometheus" {
 
 ```hcl
 module "prometheus" {
-  source = "git::https://github.com/fabiocicerchia/tf-k8s-prometheus-stack-module.git?ref=main"
+  source = "git::https://github.com/fabiocicerchia/terraform-k8s-prometheus-stack-module.git?ref=main"
 
   kubeconfig_path = "~/.kube/config"
   chart_version   = "51.0.0"
