@@ -17,7 +17,7 @@ variable "namespace" {
 }
 
 variable "chart_version" {
-  description = "Prometheus Helm chart version (empty string for latest)"
+  description = "Helm chart version (empty string for latest)"
   type        = string
   default     = ""
 }

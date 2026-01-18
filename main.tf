@@ -1,18 +1,9 @@
-provider "helm" {
-  kubernetes = {
-    config_path = var.kubeconfig_path
-  }
-}
+module "prometheus" {
+  source = "./modules/prometheus"
 
-resource "helm_release" "prometheus_community" {
-  name       = var.release_name
-  repository = "https://prometheus-community.github.io/helm-charts"
-  chart      = "prometheus-community/kube-prometheus-stack"
-  version    = var.chart_version != "" ? var.chart_version : null
-
-  create_namespace = true
-  namespace        = var.namespace
-  replace          = true
-
-  values = [var.values]
+  kubeconfig_path = var.kubeconfig_path
+  release_name    = var.release_name
+  namespace       = var.namespace
+  chart_version   = var.chart_version
+  values          = var.values
 }

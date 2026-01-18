@@ -1,14 +1,14 @@
 output "namespace" {
-  description = "Kubernetes namespace where Prometheus is deployed"
-  value       = helm_release.prometheus_community.namespace
+  description = "The namespace where Prometheus is deployed"
+  value       = module.prometheus.namespace
 }
 
 output "release_name" {
-  description = "Helm release name of Prometheus"
-  value       = helm_release.prometheus_community.name
+  description = "The Helm release name of Prometheus"
+  value       = module.prometheus.release_name
 }
 
-output "chart_version" {
-  description = "Chart version of Prometheus deployment"
-  value       = helm_release.prometheus_community.version
+output "version" {
+  description = "The version of Prometheus deployed"
+  value       = module.prometheus.version
 }
