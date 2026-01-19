@@ -17,7 +17,6 @@ Prometheus is the foundation of the monitoring stack, providing metrics collecti
 module "prometheus" {
   source = "git::https://github.com/fabiocicerchia/terraform-helm-prometheus-stack.git?ref=main"
 
-  kubeconfig_path = "~/.kube/config"
   release_name    = "prometheus-community"
   namespace       = "monitoring"
   values          = {}
@@ -28,7 +27,6 @@ module "prometheus" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| `kubeconfig_path` | Path to the kubeconfig file | `string` | `"~/.kube/config"` | no |
 | `release_name` | Helm release name for Prometheus | `string` | `"prometheus-community"` | no |
 | `namespace` | Kubernetes namespace for Prometheus | `string` | `"monitoring"` | no |
 | `chart_version` | Helm chart version (empty string for latest) | `string` | `""` | no |
@@ -57,7 +55,6 @@ module "prometheus" {
 module "prometheus" {
   source = "git::https://github.com/fabiocicerchia/terraform-helm-prometheus-stack.git?ref=main"
 
-  kubeconfig_path = "~/.kube/config"
   namespace       = "monitoring"
 }
 ```
@@ -68,7 +65,6 @@ module "prometheus" {
 module "prometheus" {
   source = "git::https://github.com/fabiocicerchia/terraform-helm-prometheus-stack.git?ref=main"
 
-  kubeconfig_path = "~/.kube/config"
   namespace       = "custom-monitoring"
   
   values = {
@@ -87,7 +83,6 @@ module "prometheus" {
 module "prometheus" {
   source = "git::https://github.com/fabiocicerchia/terraform-helm-prometheus-stack.git?ref=main"
 
-  kubeconfig_path = "~/.kube/config"
   chart_version   = "51.0.0"
 }
 ```

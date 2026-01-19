@@ -1,9 +1,3 @@
-variable "kubeconfig_path" {
-  description = "Path to the kubeconfig file"
-  type        = string
-  default     = "~/.kube/config"
-}
-
 variable "release_name" {
   description = "Helm release name for Prometheus"
   type        = string
@@ -17,7 +11,7 @@ variable "namespace" {
 }
 
 variable "chart_version" {
-  description = "Prometheus Helm chart version (empty string for latest)"
+  description = "Helm chart version (empty string for latest)"
   type        = string
   default     = ""
 }
