@@ -11,9 +11,9 @@ terraform {
 module "prometheus" {
   source = "../"
 
-  release_name    = "prometheus"
-  namespace       = "prometheus-system"
-  chart_version   = ""
+  release_name  = "prometheus"
+  namespace     = "prometheus-system"
+  chart_version = ""
 
   values = yamlencode({})
 }
