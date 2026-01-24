@@ -1,10 +1,10 @@
-# Prometheus Monitoring Module
+# Terraform Module for Prometheus
 
 Terraform module to deploy Prometheus monitoring stack on Kubernetes using Helm.
 
 ## Overview
 
-Prometheus is the foundation of the monitoring stack, providing metrics collection, storage, and visualization. It includes Grafana and Alertmanager.
+Prometheus is the foundation of the monitoring stack, providing metrics collection, storage, and visualisation. It includes Grafana and Alertmanager.
 
 - **Kube Prometheus Stack**: Complete Prometheus, Grafana, and Alertmanager setup
 - **Metrics Collection**: Automatic scraping of Kubernetes metrics
@@ -42,7 +42,7 @@ module "prometheus" {
 
 ## Requirements
 
-- Terraform >= 1.0
+- Terraform >= 1.0 or OpenTofu >= 1.6
 - Helm >= 2.0
 - Kubernetes v1.24+
 - kubectl configured to access your cluster
@@ -102,3 +102,7 @@ Visit `http://localhost:3000` (default credentials: admin/prom-operator)
 - [Prometheus Operator](https://prometheus-operator.dev/)
 - [Kube Prometheus Stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack)
 - [Grafana](https://grafana.com/)
+
+## License
+
+MIT
