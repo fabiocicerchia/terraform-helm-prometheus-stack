@@ -15,7 +15,7 @@ Prometheus is the foundation of the monitoring stack, providing metrics collecti
 
 ```hcl
 module "prometheus" {
-  source = "git::https://github.com/fabiocicerchia/terraform-helm-prometheus-stack.git?ref=main"
+  source = "fabiocicerchia/prometheus-stack/helm"
 
   release_name    = "prometheus-community"
   namespace       = "monitoring"
@@ -53,7 +53,7 @@ module "prometheus" {
 
 ```hcl
 module "prometheus" {
-  source = "git::https://github.com/fabiocicerchia/terraform-helm-prometheus-stack.git?ref=main"
+  source = "fabiocicerchia/prometheus-stack/helm"
 
   namespace       = "monitoring"
 }
@@ -63,7 +63,7 @@ module "prometheus" {
 
 ```hcl
 module "prometheus" {
-  source = "git::https://github.com/fabiocicerchia/terraform-helm-prometheus-stack.git?ref=main"
+  source = "fabiocicerchia/prometheus-stack/helm"
 
   namespace       = "custom-monitoring"
   
@@ -81,7 +81,7 @@ module "prometheus" {
 
 ```hcl
 module "prometheus" {
-  source = "git::https://github.com/fabiocicerchia/terraform-helm-prometheus-stack.git?ref=main"
+  source = "fabiocicerchia/prometheus-stack/helm"
 
   chart_version   = "51.0.0"
 }
