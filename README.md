@@ -66,7 +66,7 @@ module "prometheus" {
   source = "fabiocicerchia/prometheus-stack/helm"
 
   namespace       = "custom-monitoring"
-  
+
   values = {
     prometheus = {
       prometheusSpec = {
