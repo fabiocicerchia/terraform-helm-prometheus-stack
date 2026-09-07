@@ -25,20 +25,20 @@ module "prometheus" {
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| `release_name` | Helm release name for Prometheus | `string` | `"prometheus-community"` | no |
-| `namespace` | Kubernetes namespace for Prometheus | `string` | `"monitoring"` | no |
-| `chart_version` | Helm chart version (empty string for latest) | `string` | `""` | no |
-| `values` | Helm values for Prometheus deployment | `any` | `{}` | no |
+| Name            | Description                                  | Type     | Default                  | Required |
+| --------------- | -------------------------------------------- | -------- | ------------------------ | :------: |
+| `release_name`  | Helm release name for Prometheus             | `string` | `"prometheus-community"` | no       |
+| `namespace`     | Kubernetes namespace for Prometheus          | `string` | `"monitoring"`           | no       |
+| `chart_version` | Helm chart version (empty string for latest) | `string` | `""`                     | no       |
+| `values`        | Helm values for Prometheus deployment        | `any`    | `{}`                     | no       |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| `namespace` | Kubernetes namespace where Prometheus is deployed |
-| `release_name` | Helm release name of Prometheus |
-| `chart_version` | Chart version of Prometheus deployment |
+| Name            | Description                                       |
+| --------------- | ------------------------------------------------- |
+| `namespace`     | Kubernetes namespace where Prometheus is deployed |
+| `release_name`  | Helm release name of Prometheus                   |
+| `chart_version` | Chart version of Prometheus deployment            |
 
 ## Requirements
 
