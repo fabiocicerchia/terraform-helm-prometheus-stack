@@ -26,7 +26,7 @@ module "prometheus" {
 ## Inputs
 
 | Name            | Description                                  | Type     | Default                  | Required |
-| --------------- | -------------------------------------------- | -------- | ------------------------ | :------: |
+| --------------- | -------------------------------------------- | -------- | ------------------------ | -------- |
 | `release_name`  | Helm release name for Prometheus             | `string` | `"prometheus-community"` | no       |
 | `namespace`     | Kubernetes namespace for Prometheus          | `string` | `"monitoring"`           | no       |
 | `chart_version` | Helm chart version (empty string for latest) | `string` | `""`                     | no       |
