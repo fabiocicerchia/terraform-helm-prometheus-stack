@@ -1,0 +1,494 @@
+{
+ "excluded": {
+  "examples/examples": [
+   {
+    "candidate": "Sample requires Terraform >= 1.0",
+    "covered_by": "integration/compatibility minimum Terraform version declared by the module (versions.tf); the sample states the same floor",
+    "reason": "DUPLICATE_OF",
+    "source": "examples/main.tf#terraform"
+   },
+   {
+    "candidate": "Sample references the module by the relative path ../",
+    "covered_by": "",
+    "reason": "TECH_INFRA",
+    "source": "examples/main.tf#prometheus"
+   }
+  ],
+  "examples/outputs": [
+   {
+    "candidate": "Module outputs namespace/release_name/chart_version are read from the Helm release",
+    "covered_by": "integration/deployment-outputs (root module outputs, not this module)",
+    "reason": "DUPLICATE_OF",
+    "source": "outputs.tf#namespace"
+   },
+   {
+    "candidate": "Example passes values as yamlencode({}) and the module yamlencodes it again",
+    "covered_by": "outside this module's source files (examples/main.tf); belongs to the usage-example call or configuration/chart-values",
+    "reason": "UNVERIFIABLE",
+    "source": "examples/main.tf#prometheus"
+   }
+  ],
+  "terraform-helm-prometheus-stack/makefile": [
+   {
+    "candidate": "make setup installs the pre-commit hook",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#setup"
+   },
+   {
+    "candidate": "make install downloads the pinned providers via terraform init -backend=false",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#install"
+   },
+   {
+    "candidate": "make lint runs every pre-commit hook over every file",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#lint"
+   },
+   {
+    "candidate": "make format rewrites Terraform sources with terraform fmt -recursive",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#format"
+   },
+   {
+    "candidate": "make analyze runs tflint --recursive when tflint is installed",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": "Makefile#analyze"
+   },
+   {
+    "candidate": "help output formatting (padded verb column)",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "Makefile#help"
+   },
+   {
+    "candidate": "terraform init output is discarded during make test",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "Makefile#test"
+   }
+  ],
+  "terraform-helm-prometheus-stack/outputs": [
+   {
+    "candidate": "Output descriptions text (\"Kubernetes namespace where Prometheus is deployed\", etc.)",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "outputs.tf#namespace"
+   }
+  ],
+  "terraform-helm-prometheus-stack/terraform-helm-prometheus-stack": [
+   {
+    "candidate": "Chart dependencies are refreshed on every install (dependency_update = true)",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "main.tf#helm_release.prometheus_community"
+   },
+   {
+    "candidate": "Input defaults (release name prometheus-community, namespace monitoring, empty version, empty values)",
+    "covered_by": "variables.tf belongs to the configuration/input-defaults module, not main.tf",
+    "reason": "TECH_INFRA",
+    "source": "variables.tf"
+   },
+   {
+    "candidate": "Outputs for namespace, release name and chart version",
+    "covered_by": "outputs.tf belongs to the integration/deployment-outputs module, not main.tf",
+    "reason": "TECH_INFRA",
+    "source": "outputs.tf"
+   },
+   {
+    "candidate": "The stack is installed as the kube-prometheus-stack chart under the chosen release name",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "main.tf#helm_release.prometheus_community"
+   },
+   {
+    "candidate": "The target namespace is created when it does not exist yet",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "main.tf#helm_release.prometheus_community"
+   },
+   {
+    "candidate": "A pinned chart version is installed exactly, and an empty version follows the latest chart",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "main.tf#helm_release.prometheus_community"
+   },
+   {
+    "candidate": "Operator-supplied chart values are applied to the deployed stack",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "main.tf#helm_release.prometheus_community"
+   },
+   {
+    "candidate": "Installing reuses a release name that is still in the cluster's release history",
+    "covered_by": "",
+    "reason": "UNVERIFIABLE",
+    "source": "main.tf#helm_release.prometheus_community"
+   }
+  ],
+  "terraform-helm-prometheus-stack/tflint": [
+   {
+    "candidate": "tflint loads the terraform ruleset plugin with the 'all' preset",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#plugin \"terraform\""
+   },
+   {
+    "candidate": "Lint requires a Terraform required_version constraint (FC-TF-006)",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule \"terraform_required_version\""
+   },
+   {
+    "candidate": "Lint requires every provider to be declared with a version in required_providers (FC-TF-006)",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule \"terraform_required_providers\""
+   },
+   {
+    "candidate": "Lint requires every variable to have a description (FC-TF-003)",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule \"terraform_documented_variables\""
+   },
+   {
+    "candidate": "Lint requires every output to have a description (FC-TF-005)",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule \"terraform_documented_outputs\""
+   },
+   {
+    "candidate": "Lint requires every variable to declare a type (FC-TF-003)",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule \"terraform_typed_variables\""
+   },
+   {
+    "candidate": "Lint enforces snake_case naming for all Terraform blocks (FC-TF-011)",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule \"terraform_naming_convention\""
+   },
+   {
+    "candidate": "Lint flags unused variables, locals and data sources",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule \"terraform_unused_declarations\""
+   },
+   {
+    "candidate": "Lint requires module sources to be pinned to a version (FC-TF-006)",
+    "covered_by": "",
+    "reason": "TECH_BUILD",
+    "source": ".tflint.hcl#rule \"terraform_module_pinned_source\""
+   }
+  ],
+  "terraform-helm-prometheus-stack/variables": [
+   {
+    "candidate": "Inputs are typed as strings (release_name, namespace, chart_version) and described",
+    "covered_by": "",
+    "reason": "TECH_INFRA",
+    "source": "variables.tf#release_name"
+   },
+   {
+    "candidate": "values accepts any type with no validation (a list or string is passed to Helm unchecked)",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "variables.tf#values"
+   },
+   {
+    "candidate": "Explicitly set inputs override defaults",
+    "covered_by": "",
+    "reason": "TRIVIAL",
+    "source": "variables.tf#namespace"
+   }
+  ],
+  "terraform-helm-prometheus-stack/versions": [
+   {
+    "candidate": "Helm provider is sourced from the hashicorp/helm registry address",
+    "covered_by": "",
+    "reason": "INTERNAL_MECHANISM",
+    "source": "versions.tf#terraform"
+   },
+   {
+    "candidate": "Comment line claiming OpenTofu >= 1.6 compatibility",
+    "covered_by": "integration.compatibility.minimum-terraform-version",
+    "reason": "DUPLICATE_OF",
+    "source": "versions.tf#terraform"
+   }
+  ]
+ },
+ "lifted": {
+  "examples/examples": [],
+  "examples/outputs": [],
+  "terraform-helm-prometheus-stack/makefile": [],
+  "terraform-helm-prometheus-stack/outputs": [],
+  "terraform-helm-prometheus-stack/terraform-helm-prometheus-stack": [],
+  "terraform-helm-prometheus-stack/tflint": [],
+  "terraform-helm-prometheus-stack/variables": [],
+  "terraform-helm-prometheus-stack/versions": []
+ },
+ "retired": [],
+ "scenarios": {
+  "configuration.input-defaults.001": {
+   "file": "specs/configuration/input-defaults/input-defaults.feature",
+   "fingerprint": "c11a26bbfadf",
+   "human": false,
+   "rule": "configuration.inputs.release-and-namespace-defaults",
+   "source": "variables.tf#release_name",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "configuration.input-defaults.002": {
+   "file": "specs/configuration/input-defaults/input-defaults.feature",
+   "fingerprint": "350d63651988",
+   "human": false,
+   "rule": "configuration.inputs.chart-version-defaults-to-latest",
+   "source": "variables.tf#chart_version",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "configuration.input-defaults.003": {
+   "file": "specs/configuration/input-defaults/input-defaults.feature",
+   "fingerprint": "46b96e55ff35",
+   "human": false,
+   "rule": "configuration.inputs.no-value-overrides-by-default",
+   "source": "variables.tf#values",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.task-commands.001": {
+   "file": "specs/developer-tooling/task-commands/make-task-commands.feature",
+   "fingerprint": "517de792f113",
+   "human": false,
+   "rule": "devtooling.make.bare-make-lists-verbs",
+   "source": "Makefile#help",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.task-commands.002": {
+   "file": "specs/developer-tooling/task-commands/make-task-commands.feature",
+   "fingerprint": "4d16ff5f8f37",
+   "human": false,
+   "rule": "devtooling.make.inapplicable-verbs-explain-themselves",
+   "source": "Makefile#build",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.task-commands.003": {
+   "file": "specs/developer-tooling/task-commands/make-task-commands.feature",
+   "fingerprint": "c5311b237c3f",
+   "human": false,
+   "rule": "devtooling.make.analyze-requires-tflint",
+   "source": "Makefile#analyze",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "developer-tooling.validation.001": {
+   "file": "specs/developer-tooling/validation/make-validation.feature",
+   "fingerprint": "8145e195cde0",
+   "human": false,
+   "rule": "devtooling.validation.module-and-example-validated",
+   "source": "Makefile#test",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "integration.compatibility.001": {
+   "file": "specs/integration/compatibility/tool-provider-compatibility.feature",
+   "fingerprint": "c4352a3c0676",
+   "human": false,
+   "rule": "integration.compatibility.minimum-terraform-version",
+   "source": "versions.tf#terraform",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "integration.compatibility.002": {
+   "file": "specs/integration/compatibility/tool-provider-compatibility.feature",
+   "fingerprint": "c4352a3c0676",
+   "human": false,
+   "rule": "integration.compatibility.minimum-helm-provider-version",
+   "source": "versions.tf#terraform",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "integration.deployment-outputs.001": {
+   "file": "specs/integration/deployment-outputs/deployment-outputs.feature",
+   "fingerprint": "68e7c76efb55",
+   "human": false,
+   "rule": "integration.deployment-outputs.namespace-reported",
+   "source": "outputs.tf#namespace",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "integration.deployment-outputs.002": {
+   "file": "specs/integration/deployment-outputs/deployment-outputs.feature",
+   "fingerprint": "8ac4ffbcaded",
+   "human": false,
+   "rule": "integration.deployment-outputs.release-name-reported",
+   "source": "outputs.tf#release_name",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "integration.deployment-outputs.003": {
+   "file": "specs/integration/deployment-outputs/deployment-outputs.feature",
+   "fingerprint": "b0766dec5bab",
+   "human": false,
+   "rule": "integration.deployment-outputs.chart-version-reported",
+   "source": "outputs.tf#chart_version",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "integration.usage-example.001": {
+   "file": "specs/integration/usage-example/usage-example.feature",
+   "fingerprint": "3e1218ed3f12",
+   "human": false,
+   "rule": "examples.usage.deploys-named-release-in-own-namespace",
+   "source": "examples/main.tf#prometheus",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "integration.usage-example.002": {
+   "file": "specs/integration/usage-example/usage-example.feature",
+   "fingerprint": "ca96f969c641",
+   "human": false,
+   "rule": "examples.usage.reexports-deployment-outputs",
+   "source": "examples/outputs.tf#prometheus_namespace",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "integration.usage-example.003": {
+   "file": "specs/integration/usage-example/usage-example.feature",
+   "fingerprint": "3e1218ed3f12",
+   "human": false,
+   "rule": "examples.usage.chart-values-encoded-twice",
+   "source": "examples/main.tf#prometheus",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "integration.usage-example.004": {
+   "file": "specs/integration/usage-example/usage-example.feature",
+   "fingerprint": "d9b0ccb746cd",
+   "human": false,
+   "rule": "examples.usage.helm-provider-limited-to-2x",
+   "source": "examples/main.tf#terraform",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  },
+  "integration.usage-example.005": {
+   "file": "specs/integration/usage-example/example-reexported-outputs.feature",
+   "fingerprint": "ca96f969c641",
+   "human": false,
+   "rule": "examples.outputs.reexports-module-outputs-with-prometheus-prefix",
+   "source": "examples/outputs.tf#prometheus_namespace",
+   "status": "inferred",
+   "test": "",
+   "tests": []
+  }
+ },
+ "taxonomy": {
+  "domains": [
+   {
+    "areas": [
+     {
+      "description": "Installs the kube-prometheus-stack chart from the prometheus-community repository as a named Helm release, replacing any existing one.",
+      "slug": "release-install",
+      "title": "Release installation"
+     },
+     {
+      "description": "Chooses the target namespace for the stack and creates it when it does not yet exist.",
+      "slug": "namespace-placement",
+      "title": "Namespace placement"
+     },
+     {
+      "description": "Pins a specific chart version or follows the latest when none is given, with chart dependencies refreshed on install.",
+      "slug": "chart-versioning",
+      "title": "Chart version selection"
+     }
+    ],
+    "description": "Installing the kube-prometheus-stack Helm chart into a Kubernetes cluster.",
+    "slug": "stack-deployment",
+    "title": "Monitoring Stack Deployment"
+   },
+   {
+    "areas": [
+     {
+      "description": "The documented, typed inputs for release name, namespace and chart version and the defaults used when they are omitted.",
+      "slug": "input-defaults",
+      "title": "Inputs and defaults"
+     },
+     {
+      "description": "Passes arbitrary Helm values through to the chart, encoded as YAML.",
+      "slug": "chart-values",
+      "title": "Chart value overrides"
+     }
+    ],
+    "description": "How a caller tailors the monitoring stack through module inputs.",
+    "slug": "configuration",
+    "title": "Configuration"
+   },
+   {
+    "areas": [
+     {
+      "description": "Reports the namespace, release name and chart version that were actually deployed.",
+      "slug": "deployment-outputs",
+      "title": "Deployment outputs"
+     },
+     {
+      "description": "Declares the minimum Terraform/OpenTofu and Helm provider versions the module supports.",
+      "slug": "compatibility",
+      "title": "Tool and provider compatibility"
+     },
+     {
+      "description": "A sample root module showing how to call the module and re-export its outputs.",
+      "slug": "usage-example",
+      "title": "Usage example"
+     }
+    ],
+    "description": "What the module exposes to callers and what it needs from their environment.",
+    "slug": "integration",
+    "title": "Integration"
+   },
+   {
+    "areas": [
+     {
+      "description": "The standard make verbs for help, setup, install, test, format and the declared no-ops for build and run.",
+      "slug": "task-commands",
+      "title": "Task commands"
+     },
+     {
+      "description": "Initialises and validates both the module and its example without a backend.",
+      "slug": "validation",
+      "title": "Validation"
+     },
+     {
+      "description": "Pre-commit hooks and tflint rules enforcing documented, typed, snake_case and version-pinned Terraform.",
+      "slug": "linting-standards",
+      "title": "Linting and code standards"
+     }
+    ],
+    "description": "Commands and checks that keep the module buildable, consistent and correct.",
+    "slug": "developer-tooling",
+    "title": "Developer tooling"
+   }
+  ]
+ }
+}
