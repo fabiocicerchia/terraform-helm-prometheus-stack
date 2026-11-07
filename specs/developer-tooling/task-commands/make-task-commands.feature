@@ -28,5 +28,5 @@ Feature: Running the standard task commands
     Given tflint is not installed on the contributor's machine
     When the contributor runs make analyze
     Then the message "analyze needs tflint: https://github.com/terraform-linters/tflint" is shown on standard error
-    And the command fails with exit status 69
+    And the analyze recipe exits with status 69, so make reports the verb as failed
     And no analysis is run

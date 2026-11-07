@@ -3,7 +3,7 @@ Feature: Reporting what was deployed
   Lets the operator and any calling configuration learn the namespace, release name and chart version the monitoring stack actually ended up with, so they can wire other systems to it.
 
   Background:
-    Given the operator applies the prometheus stack module to a Kubernetes cluster
+    Given the operator calls the prometheus stack module against a Kubernetes cluster
 
   @id:integration.deployment-outputs.001 @rule:integration.deployment-outputs.namespace-reported @inferred @source:outputs.tf#namespace
   Scenario Outline: The namespace the stack runs in is reported
