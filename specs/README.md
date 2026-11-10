@@ -4,17 +4,20 @@ What this code does, one atomic Gherkin scenario per behaviour, read from the co
 Tags: `@verified` a test asserts it · `@inferred` read from the code only · `@gap` an entry point no test covers · `@human` written or amended by a person, never rewritten.
 
 ## Configuration
+
 How a caller tailors the monitoring stack through module inputs.
 
 - **Inputs and defaults**: [Deploying the monitoring stack with default inputs](configuration/input-defaults/input-defaults.feature) (3)
 
 ## Developer tooling
+
 Commands and checks that keep the module buildable, consistent and correct.
 
 - **Task commands**: [Running the standard task commands](developer-tooling/task-commands/make-task-commands.feature) (3)
 - **Validation**: [Validating the module and its example](developer-tooling/validation/make-validation.feature) (1)
 
 ## Integration
+
 What the module exposes to callers and what it needs from their environment.
 
 - **Tool and provider compatibility**: [Declaring supported Terraform, OpenTofu and Helm provider versions](integration/compatibility/tool-provider-compatibility.feature) (2)
