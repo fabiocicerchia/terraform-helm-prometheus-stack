@@ -6,26 +6,17 @@ Feature: Reporting what was deployed
     Given the operator calls the prometheus stack module against a Kubernetes cluster
 
   @id:integration.deployment-outputs.001 @rule:integration.deployment-outputs.namespace-reported @inferred @source:outputs.tf#namespace
-  Scenario Outline: The namespace the stack runs in is reported
-    Given the operator sets the namespace input to <namespace_input>
+  Scenario Outline: The namespace and Helm release name of the stack are reported
+    Given the operator sets the <input> input to <input_value>
     When the operator applies the configuration
-    Then the "namespace" output is "<reported_namespace>"
+    Then the "<input>" output is "<reported>"
 
     Examples:
-      | namespace_input | reported_namespace |
-      | (not set)       | monitoring         |
-      | observability   | observability      |
-
-  @id:integration.deployment-outputs.002 @rule:integration.deployment-outputs.release-name-reported @inferred @source:outputs.tf#release_name
-  Scenario Outline: The Helm release name of the stack is reported
-    Given the operator sets the release name input to <release_name_input>
-    When the operator applies the configuration
-    Then the "release_name" output is "<reported_release_name>"
-
-    Examples:
-      | release_name_input | reported_release_name |
-      | (not set)          | prometheus-community  |
-      | kps-acme           | kps-acme              |
+      | input        | input_value   | reported             |
+      | namespace    | (not set)     | monitoring           |
+      | namespace    | observability | observability        |
+      | release_name | (not set)     | prometheus-community |
+      | release_name | kps-acme      | kps-acme             |
 
   @id:integration.deployment-outputs.003 @rule:integration.deployment-outputs.chart-version-reported @inferred @source:outputs.tf#chart_version
   Scenario Outline: The chart version actually installed is reported

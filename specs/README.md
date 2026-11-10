@@ -18,5 +18,5 @@ Commands and checks that keep the module buildable, consistent and correct.
 What the module exposes to callers and what it needs from their environment.
 
 - **Tool and provider compatibility**: [Declaring supported Terraform, OpenTofu and Helm provider versions](integration/compatibility/tool-provider-compatibility.feature) (2)
-- **Deployment outputs**: [Reporting what was deployed](integration/deployment-outputs/deployment-outputs.feature) (3)
-- **Usage example**: [Re-exporting deployment facts from the usage example](integration/usage-example/example-reexported-outputs.feature) (1), [Deploying the monitoring stack from the sample root module](integration/usage-example/usage-example.feature) (4)
+- **Deployment outputs**: [Reporting what was deployed](integration/deployment-outputs/deployment-outputs.feature) (2)
+- **Usage example**: [Re-exporting deployment facts from the usage example](integration/usage-example/example-reexported-outputs.feature) (1), [Deploying the monitoring stack from the sample root module](integration/usage-example/usage-example.feature) (2)

@@ -5,22 +5,6 @@ Feature: Deploying the monitoring stack from the sample root module
   Background:
     Given the operator has a Kubernetes cluster reachable by the Helm provider
 
-  @id:integration.usage-example.001 @rule:examples.usage.deploys-named-release-in-own-namespace @inferred @source:examples/main.tf#prometheus
-  Scenario: The sample deploys a release called prometheus into the prometheus-system namespace at the latest chart version
-    Given the operator uses the sample root module unchanged
-    When the operator applies the sample
-    Then a Helm release named "prometheus" of kube-prometheus-stack exists
-    And the release is in the namespace "prometheus-system", created if it was missing
-    And the chart version is the latest published one, because no version is pinned
-
-  @id:integration.usage-example.002 @rule:examples.usage.reexports-deployment-outputs @inferred @source:examples/outputs.tf#prometheus_namespace
-  Scenario: The sample reports the deployed namespace, release name and chart version under prometheus-prefixed outputs
-    Given the operator has applied the sample
-    When the operator reads the sample's outputs
-    Then "prometheus_namespace" shows "prometheus-system"
-    And "prometheus_release_name" shows "prometheus"
-    And "prometheus_chart_version" shows the chart version Helm actually installed
-
   @id:integration.usage-example.003 @rule:examples.usage.chart-values-encoded-twice @inferred @source:examples/main.tf#prometheus @questionable
   Scenario: The sample's chart values reach Helm as a quoted text value, not as a map of settings
     Given the sample passes its values already encoded as YAML text

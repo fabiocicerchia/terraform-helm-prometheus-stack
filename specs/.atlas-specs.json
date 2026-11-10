@@ -231,7 +231,11 @@
   "terraform-helm-prometheus-stack/variables": [],
   "terraform-helm-prometheus-stack/versions": []
  },
- "retired": [],
+ "retired": [
+  "integration.usage-example.002",
+  "integration.usage-example.001",
+  "integration.deployment-outputs.002"
+ ],
  "scenarios": {
   "configuration.input-defaults.001": {
    "file": "specs/configuration/input-defaults/input-defaults.feature",
@@ -333,42 +337,12 @@
    "test": "",
    "tests": []
   },
-  "integration.deployment-outputs.002": {
-   "file": "specs/integration/deployment-outputs/deployment-outputs.feature",
-   "fingerprint": "8ac4ffbcaded",
-   "human": false,
-   "rule": "integration.deployment-outputs.release-name-reported",
-   "source": "outputs.tf#release_name",
-   "status": "inferred",
-   "test": "",
-   "tests": []
-  },
   "integration.deployment-outputs.003": {
    "file": "specs/integration/deployment-outputs/deployment-outputs.feature",
    "fingerprint": "b0766dec5bab",
    "human": false,
    "rule": "integration.deployment-outputs.chart-version-reported",
    "source": "outputs.tf#chart_version",
-   "status": "inferred",
-   "test": "",
-   "tests": []
-  },
-  "integration.usage-example.001": {
-   "file": "specs/integration/usage-example/usage-example.feature",
-   "fingerprint": "3e1218ed3f12",
-   "human": false,
-   "rule": "examples.usage.deploys-named-release-in-own-namespace",
-   "source": "examples/main.tf#prometheus",
-   "status": "inferred",
-   "test": "",
-   "tests": []
-  },
-  "integration.usage-example.002": {
-   "file": "specs/integration/usage-example/usage-example.feature",
-   "fingerprint": "ca96f969c641",
-   "human": false,
-   "rule": "examples.usage.reexports-deployment-outputs",
-   "source": "examples/outputs.tf#prometheus_namespace",
    "status": "inferred",
    "test": "",
    "tests": []
